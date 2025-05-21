@@ -1,0 +1,10 @@
+# Firewall Simulation - Event Horizon of Trust
+
+trusted_ips = ['192.168.1.10', '10.0.0.5']
+incoming_requests = ['192.168.1.10', '123.45.67.89', '10.0.0.5', '172.16.0.3']
+
+print("=== Firewall Log ===")
+for ip in incoming_requests:
+    status = "ALLOWED" if ip in trusted_ips else "BLOCKED"
+    print(f"{ip} --> {status}")
+#AI is used for enhancing the productivity of the code (Chatgpt,OpenAI)
