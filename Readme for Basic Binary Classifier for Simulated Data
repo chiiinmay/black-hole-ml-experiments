@@ -1,0 +1,25 @@
+# Chapter 7 - AI in Black Hole Detection
+
+This project simulates black hole light curve data and trains a basic neural network classifier to detect black hole events.
+
+## Features
+
+- Synthetic generation of stellar and black hole light curves  
+- Binary classification using TensorFlow/Keras  
+- Evaluation of prediction accuracy
+
+## Requirements
+
+- Python 3.x  
+- numpy, matplotlib  
+- tensorflow  
+- scikit-learn
+
+## How to Run
+
+Run the notebook in Google Colab. Modify noise and signal parameters to test robustness.
+
+## References
+
+- [NASA AI Projects](https://www.nasa.gov/ai)  
+- [TensorFlow for Astronomical Analysis](https://www.tensorflow.org/)
