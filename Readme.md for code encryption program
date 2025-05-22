@@ -1,0 +1,26 @@
+# Chapter 2 - The Singularity of Data Encryption
+
+This project demonstrates symmetric encryption using the AES (Advanced Encryption Standard) algorithm in Python. Inspired by the black hole singularity metaphor, the code encrypts and decrypts data securely, simulating how data is "hidden" like information inside a singularity.
+
+## Features
+
+- Generates a 256-bit AES secret key.
+- Encrypts plaintext using AES in CBC mode with PKCS7 padding.
+- Decrypts ciphertext back to the original message.
+- Prints key, IV, ciphertext in hexadecimal for clarity.
+
+## Requirements
+
+- Python 3.x
+- `cryptography` library (`pip install cryptography`)
+
+## How to Run
+
+1. Clone the repo.
+2. Run the `aes_encryption.py` script.
+3. Observe the encryption and decryption outputs.
+
+## References
+
+- [AES Encryption - Wikipedia](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+- [Cryptography Library Documentation](https://cryptography.io/en/latest/)
