@@ -1,0 +1,13 @@
+Start
+  ↓
+Generate Synthetic Gravitational Wave Signal
+  ↓
+Add Gaussian Noise to Signal
+  ↓
+Apply Matched Filter Algorithm
+  ↓
+Visualize Original, Noisy, and Filtered Signals
+  ↓
+Interpret Detection Results
+  ↓
+End
