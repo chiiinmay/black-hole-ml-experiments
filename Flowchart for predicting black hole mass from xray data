@@ -1,0 +1,17 @@
+Start
+  ↓
+Load Dataset (X-ray features + Mass)
+  ↓
+Preprocess Data (clean, normalize)
+  ↓
+Split Data (train/test)
+  ↓
+Train ML Model (Linear Regression)
+  ↓
+Predict on Test Data
+  ↓
+Evaluate Model (MSE, R²)
+  ↓
+Visualize Results (scatter plot)
+  ↓
+End
