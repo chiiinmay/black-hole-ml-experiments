@@ -1,0 +1,47 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import correlate
+
+# Generate a synthetic gravitational wave signal (chirp-like)
+def generate_gw_signal(t):
+    return np.sin(2 * np.pi * (5 * t + 10 * t**2))
+
+# Time array
+t = np.linspace(0, 1, 1000)
+
+# Clean gravitational wave signal
+gw_signal = generate_gw_signal(t)
+
+# Generate noise
+noise = np.random.normal(0, 1, t.shape)
+
+# Signal + Noise
+observed_signal = gw_signal + noise
+
+# Matched filter function
+def matched_filter(signal, template):
+    return correlate(signal, template, mode='same')
+
+# Apply matched filter to detect signal
+filtered = matched_filter(observed_signal, gw_signal)
+
+# Plot signals
+plt.figure(figsize=(12, 8))
+
+plt.subplot(3,1,1)
+plt.title("Original Gravitational Wave Signal")
+plt.plot(t, gw_signal)
+plt.grid()
+
+plt.subplot(3,1,2)
+plt.title("Observed Signal (Signal + Noise)")
+plt.plot(t, observed_signal)
+plt.grid()
+
+plt.subplot(3,1,3)
+plt.title("Matched Filter Output (Detection Signal)")
+plt.plot(t, filtered)
+plt.grid()
+
+plt.tight_layout()
+plt.show()
