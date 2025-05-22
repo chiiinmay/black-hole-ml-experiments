@@ -1,0 +1,15 @@
+Start
+  ↓
+Generate Synthetic Light Curve Dataset
+  ↓
+Label: Black Hole vs Normal Star
+  ↓
+Build Neural Network Model
+  ↓
+Train and Validate Model
+  ↓
+Evaluate Accuracy on Test Data
+  ↓
+Use Model for Future Prediction
+  ↓
+End
