@@ -1,0 +1,29 @@
+# Chapter 4 - AI Meets Astrophysics: Black Hole Data Analysis
+
+This project demonstrates using Machine Learning to predict black hole mass based on X-ray emission data.
+
+## Features
+
+- Synthetic dataset simulating black hole X-ray features.
+- Linear regression model to predict mass.
+- Performance evaluation with MSE and R² metrics.
+- Visualization of actual vs predicted values.
+
+## Requirements
+
+- Python 3.x  
+- pandas  
+- scikit-learn  
+- matplotlib  
+
+## How to Run
+
+1. Clone the repo.  
+2. Run the notebook in Google Colab or locally.  
+3. Analyze model results and visualization.
+
+## References
+
+- [Machine Learning in Astrophysics Review](https://arxiv.org/abs/1904.07368)  
+- [NASA HEASARC Data Archive](https://heasarc.gsfc.nasa.gov)  
+- [Scikit-learn Documentation](https://scikit-learn.org/stable/)
