@@ -1,0 +1,54 @@
+# Chapter 2: Data Encryption - AES Example in Python
+
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives import padding
+from cryptography.hazmat.backends import default_backend
+import os
+
+# Function to generate a random 256-bit AES key
+def generate_key():
+    return os.urandom(32)  # 256 bits
+
+# Function to encrypt plaintext using AES CBC mode
+def encrypt(plaintext, key):
+    iv = os.urandom(16)  # 128-bit IV for CBC mode
+    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
+    encryptor = cipher.encryptor()
+
+    # Padding plaintext to block size (128 bits)
+    padder = padding.PKCS7(128).padder()
+    padded_data = padder.update(plaintext.encode()) + padder.finalize()
+
+    ciphertext = encryptor.update(padded_data) + encryptor.finalize()
+    return iv, ciphertext
+
+# Function to decrypt ciphertext using AES CBC mode
+def decrypt(iv, ciphertext, key):
+    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
+    decryptor = cipher.decryptor()
+
+    padded_plaintext = decryptor.update(ciphertext) + decryptor.finalize()
+
+    # Remove padding
+    unpadder = padding.PKCS7(128).unpadder()
+    plaintext = unpadder.update(padded_plaintext) + unpadder.finalize()
+    return plaintext.decode()
+
+# Main execution
+if __name__ == "__main__":
+    # Generate AES key
+    key = generate_key()
+    print(f"AES Key (hex): {key.hex()}")
+
+    # Sample plaintext
+    message = "This is a secret message inspired by black hole singularities."
+    print(f"Original Message: {message}")
+
+    # Encrypt
+    iv, ciphertext = encrypt(message, key)
+    print(f"IV (hex): {iv.hex()}")
+    print(f"Ciphertext (hex): {ciphertext.hex()}")
+
+    # Decrypt
+    decrypted_message = decrypt(iv, ciphertext, key)
+    print(f"Decrypted Message: {decrypted_message}")
