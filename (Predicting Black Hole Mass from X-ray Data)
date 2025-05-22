@@ -1,0 +1,47 @@
+# Import libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import matplotlib.pyplot as plt
+
+# Sample synthetic data creation (replace with real NASA dataset if available)
+# Features: 'energy_flux', 'x_ray_intensity', 'spectral_index'
+# Target: 'black_hole_mass'
+
+data = {
+    'energy_flux': [10, 20, 30, 40, 50, 60, 70, 80],
+    'x_ray_intensity': [15, 18, 30, 45, 60, 65, 80, 85],
+    'spectral_index': [1.1, 1.3, 1.7, 1.8, 2.0, 2.2, 2.4, 2.5],
+    'black_hole_mass': [5, 7, 10, 13, 17, 18, 22, 24]  # in solar masses
+}
+
+df = pd.DataFrame(data)
+
+# Features and target variable
+X = df[['energy_flux', 'x_ray_intensity', 'spectral_index']]
+y = df['black_hole_mass']
+
+# Split data: 70% train, 30% test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Model training
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Prediction
+y_pred = model.predict(X_test)
+
+# Evaluation
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"Mean Squared Error: {mse:.2f}")
+print(f"R^2 Score: {r2:.2f}")
+
+# Plot actual vs predicted
+plt.scatter(y_test, y_pred)
+plt.xlabel('Actual Black Hole Mass')
+plt.ylabel('Predicted Black Hole Mass')
+plt.title('Actual vs Predicted Black Hole Mass')
+plt.show()
