@@ -1,0 +1,21 @@
+This is the flowchart of code encryption program 
+
+Start
+  ↓
+Generate AES Key (256-bit)
+  ↓
+Input Plaintext Message
+  ↓
+Apply Padding (PKCS7)
+  ↓
+Encrypt using AES-CBC with IV
+  ↓
+Output Ciphertext + IV
+  ↓
+Decrypt Ciphertext using Key + IV
+  ↓
+Remove Padding
+  ↓
+Retrieve Original Plaintext
+  ↓
+End
